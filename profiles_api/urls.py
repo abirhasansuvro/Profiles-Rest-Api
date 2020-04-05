@@ -4,8 +4,11 @@ from . import views
 
 router=DefaultRouter()
 router.register('hello-viewset',views.HellowViewSet,base_name='hello-viewset')
+router.register('profile',views.UserProfileViewset)
+router.register('feed',views.ProfileFeedItemViewSet)
 
 urlpatterns=[
     path('hello-view/',views.HelloApiView.as_view()),
+    path('login/',views.UserLoginApiView.as_view()),
     path('',include(router.urls)),
 ]
